@@ -1,1 +1,47 @@
 /* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+.dark-theme {
+    background-color: #121212;
+    color: #eee;
+  }
+  
+  .dark-theme .mat-card {
+    background-color: #333;
+    color: #eee;
+  }
+  
+  .dark-theme .mat-form-field-label {
+      color: #eee;
+  }
+  
+  .dark-theme .mat-input-element {
+      color: #eee;
+  }
+  
+  .dark-theme .mat-form-field-outline {
+      color: #eee;
+  }
+  
+  .light-theme {
+      background-color: #f0f0f0;
+      color: #333;
+  }
+  
+  light-theme .mat-card {
+    background-color: white;
+    color: #333;
+  }
+  
+  light-theme .mat-form-field-label {
+      color: #333;
+  }
+  
+  light-theme .mat-input-element {
+      color: #333;
+  }
+  
+  light-theme .mat-form-field-outline {
+      color: #333;
+  }
