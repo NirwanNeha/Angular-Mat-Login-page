@@ -12,6 +12,8 @@ export class LoginComponent implements OnInit {
   loginForm!: FormGroup;
   isDarkMode: boolean = false;
   loginError: string = ''; // ✅ For error message
+  hidePassword = true; // Initial state: hide password
+
 
   constructor(private fb: FormBuilder, private router: Router) {} // ✅ Inject Router
 
@@ -46,4 +48,8 @@ export class LoginComponent implements OnInit {
       this.loginError = 'Invalid username or password'; // ✅ Show error message
     }
   }
+  togglePasswordVisibility() {
+    this.hidePassword = !this.hidePassword;
+  }
+
 }

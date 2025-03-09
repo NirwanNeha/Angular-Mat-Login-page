@@ -20,19 +20,22 @@
 
       <mat-form-field appearance="outline">
         <mat-label>Password</mat-label>
-        <input matInput formControlName="password" type="password" />
+        <input
+          matInput
+          [type]="hidePassword ? 'password' : 'text'"
+          formControlName="password"
+        />
         <mat-error *ngIf="loginForm.get('password')?.hasError('required')">
           Password is required
         </mat-error>
+        <span
+          class="password-toggle"
+          (click)="togglePasswordVisibility()"
+          matSuffix
+        >
+          <mat-icon>{{ hidePassword ? 'visibility_off' : 'visibility' }}</mat-icon>
+        </span>
       </mat-form-field>
-
-      <!-- <mat-slide-toggle
-        (change)="toggleTheme($event)"
-        [checked]="isDarkMode"
-        class="theme-toggle"
-      >
-        {{ isDarkMode ? 'Dark Mode' : 'Light Mode' }}
-      </mat-slide-toggle> -->
 
       <p *ngIf="loginError" class="error-message">{{ loginError }}</p>
 
