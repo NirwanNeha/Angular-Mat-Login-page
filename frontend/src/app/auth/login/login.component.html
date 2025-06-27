@@ -1,45 +1,44 @@
 <div class="login-container">
-  <div class="image-container">
-    <img src="assets/image1.png" alt="Analytics Illustration" />
+  <!-- Left Info Panel -->
+  <div class="left-panel">
+    <div class="welcome-box">
+      <img src="assets/indian-navy-emblem.png" alt="Navy Logo" class="navy-logo" />
+      <h1 class="title">DataEdge NGX</h1>
+      <p class="desc">Welcome to the Enterprise Dashboard where operational insights, data security, and analytics converge.</p>
+      <div class="features">
+        <div class="feature"><i class="pi pi-shield"></i></div>
+        <div class="feature"><i class="pi pi-database"></i></div>
+        <div class="feature"><i class="pi pi-chart-line"></i></div>
+      </div>
+    </div>
   </div>
 
-  <mat-card class="login-card">
-    <mat-card-title>Login</mat-card-title>
+  <!-- Right Login Panel -->
+  <div class="right-panel">
+    <div class="form-card animate-glass">
+      <h2>Welcome Back</h2>
+      <p>Sign in to access your dashboard</p>
+      <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <label>Email</label>
+        <input type="email" formControlName="email" placeholder="Enter your email" />
+        <div *ngIf="loginForm.get('email')?.invalid && loginForm.get('email')?.touched" class="form-error">
+          <small *ngIf="loginForm.get('email')?.hasError('required')">Email is required</small>
+          <small *ngIf="loginForm.get('email')?.hasError('email')">Invalid email format</small>
+        </div>
 
-    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-      <mat-form-field appearance="outline">
-        <mat-label>Email</mat-label>
-        <input matInput formControlName="email" type="email" />
-        <mat-error *ngIf="loginForm.get('email')?.hasError('required')">
-          Email is required
-        </mat-error>
-        <mat-error *ngIf="loginForm.get('email')?.hasError('email')">
-          Invalid email format
-        </mat-error>
-      </mat-form-field>
+        <label>Password</label>
+        <div class="password-wrapper">
+          <input [type]="hidePassword ? 'password' : 'text'" formControlName="password" placeholder="••••••••" />
+          <i class="pi" [ngClass]="hidePassword ? 'pi-eye-slash' : 'pi-eye'" (click)="togglePasswordVisibility()"></i>
+        </div>
+        <div *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched" class="form-error">
+          <small>Password is required</small>
+        </div>
 
-      <mat-form-field appearance="outline">
-        <mat-label>Password</mat-label>
-        <input
-          matInput
-          [type]="hidePassword ? 'password' : 'text'"
-          formControlName="password"
-        />
-        <mat-error *ngIf="loginForm.get('password')?.hasError('required')">
-          Password is required
-        </mat-error>
-        <span
-          class="password-toggle"
-          (click)="togglePasswordVisibility()"
-          matSuffix
-        >
-          <mat-icon>{{ hidePassword ? 'visibility_off' : 'visibility' }}</mat-icon>
-        </span>
-      </mat-form-field>
+        <p *ngIf="loginError" class="error-message">{{ loginError }}</p>
 
-      <p *ngIf="loginError" class="error-message">{{ loginError }}</p>
-
-      <button mat-raised-button color="primary" type="submit">Login</button>
-    </form>
-  </mat-card>
+        <button type="submit" class="btn-submit">Login</button>
+      </form>
+    </div>
+  </div>
 </div>
