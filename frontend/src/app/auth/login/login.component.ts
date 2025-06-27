@@ -11,21 +11,22 @@ import { Router } from '@angular/router'; // ✅ Import Router
 export class LoginComponent implements OnInit {
   loginForm!: FormGroup;
   isDarkMode: boolean = false;
-  loginError: string = ''; // ✅ For error message
+  loginError: string = ''; 
   hidePassword = true; // Initial state: hide password
 
 
-  constructor(private fb: FormBuilder, private router: Router) {} // ✅ Inject Router
+  constructor(private fb: FormBuilder, private router: Router) {} 
 
-  ngOnInit(): void {
-    this.isDarkMode = localStorage.getItem('theme') === 'dark';
-    this.loginForm = this.fb.group({
-      email: ['', [Validators.required]],
-      password: ['', [Validators.required]]
-    });
+ngOnInit(): void {
+  this.isDarkMode = localStorage.getItem('theme') === 'dark';
+  this.applyTheme();
 
-    this.applyTheme();
-  }
+  this.loginForm = this.fb.group({
+    email: ['', [Validators.required, Validators.email]], // Add email format validation
+    password: ['', [Validators.required]]
+  });
+}
+
 
   toggleTheme(event: MatSlideToggleChange): void {
     this.isDarkMode = event.checked;
