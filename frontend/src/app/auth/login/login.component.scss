@@ -1,121 +1,155 @@
-/* Full Page Layout */
 .login-container {
   display: flex;
-  justify-content: center; /* Center horizontally */
-  align-items: center;
-  height: 100vh;
-  width: 100vw;
-  background-color: var(--bg-color);
-  color: var(--text-color);
+  height: 100dvh;
+  overflow: hidden;
+  font-family: 'Segoe UI', sans-serif;
+
+  .left-panel {
+    flex: 1;
+    background: linear-gradient(135deg, #0a2c56, #133a6f);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    .welcome-box {
+      text-align: center;
+      background: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(10px);
+      padding: 2.5rem;
+      border-radius: 1.2rem;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+      .navy-logo {
+        height: 80px;
+        margin-bottom: 1rem;
+        filter: drop-shadow(0 0 5px #b3e5fc);
+      }
+      
+      .title {
+        font-size: 2rem;
+        color: #e3f2fd;
+        margin-bottom: 0.75rem;
+      }
+      .desc {
+        color: #bbdefb;
+        font-size: 0.95rem;
+        margin-bottom: 1.5rem;
+      }
+      .features {
+        display: flex;
+        justify-content: center;
+        gap: 1.5rem;
+        .feature {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 50px;
+          height: 50px;
+          border-radius: 10px;
+          background: rgba(255, 255, 255, 0.05);
+          box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+          transition: transform 0.3s ease, background 0.4s;
+          i {
+            font-size: 1.6rem;
+            color: #90caf9;
+          }
+          &:hover {
+            transform: scale(1.15);
+            background: rgba(255, 255, 255, 0.15);
+          }
+        }
+      }
+    }
+  }
+
+  .right-panel {
+    flex: 1;
+    background: #0d1b2a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .form-card {
+      width: 90%;
+      max-width: 400px;
+      padding: 2rem;
+      background: rgba(255, 255, 255, 0.06);
+      backdrop-filter: blur(14px);
+      border-radius: 1.2rem;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+      color: #e0f7fa;
+
+      h2 {
+        font-size: 1.8rem;
+        margin-bottom: 0.5rem;
+      }
+      p {
+        font-size: 1rem;
+        color: #b3e5fc;
+        margin-bottom: 1.5rem;
+      }
+      label {
+        font-size: 0.9rem;
+        margin-bottom: 0.3rem;
+        color: #bbdefb;
+        display: block;
+      }
+      input {
+        width: 100%;
+        padding: 0.75rem;
+        margin-bottom: 1rem;
+        border: none;
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.1);
+        color: #fff;
+        &:focus {
+          outline: none;
+          background: rgba(255, 255, 255, 0.15);
+        }
+      }
+      .password-wrapper {
+        position: relative;
+        input {
+          padding-right: 2.5rem;
+        }
+        i.pi {
+          position: absolute;
+          top: 50%;
+          right: 0.75rem;
+          transform: translateY(-50%);
+          cursor: pointer;
+          color: #4fc3f7;
+        }
+      }
+      .btn-submit {
+        width: 100%;
+        padding: 0.75rem;
+        background: #29b6f6;
+        color: white;
+        font-weight: bold;
+        border: none;
+        border-radius: 0.5rem;
+        cursor: pointer;
+        transition: background 0.3s ease;
+        &:hover {
+          background: #0288d1;
+        }
+      }
+    }
+  }
 }
 
-/* Image Container (50%) */
-.image-container {
-  flex: 1; 
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.image-container img {
-  width: 90%;
-  height: auto;
-  max-height: 103vh; 
-  object-fit: contain; 
-}
-
-/* Login Card Styling (50%) */
-.login-card {
-  flex: 1; 
-  max-width: 450px;
-  padding: 40px;
-  border-radius: 12px;
-  background-color: inherit;
-  color: inherit;
-  transition: box-shadow 0.3s ease;
-  box-shadow: 0 0 30px 10px rgba(103, 58, 183, 0.5);
-  margin-right: 78px; /* Add right margin to shift left */ 
-  min-height: 77vh; /* Increased minimum height */
-
-  /* Center content within the card */
-  display: flex;
-  flex-direction: column;
-  align-items: center; 
-}
-
-.login-card:hover {
-  box-shadow: 0 0 40px 15px rgba(103, 58, 183, 0.7);
-}
-
-/* ... rest of your CSS ... */
-/* Dark Mode Adjustments */
-.dark-theme .login-card {
-  box-shadow: 0 0 30px 10px rgba(139, 125, 245, 0.5);
-}
-
-.dark-theme .login-card:hover {
-  box-shadow: 0 0 40px 15px rgba(139, 125, 245, 0.7);
-}
-
-/* Theme Toggle */
-.theme-toggle {
-  display: block;
-  text-align: right;
-  margin-bottom: 10px;
-  width: 100%; /* Make toggle take full width */
-}
-
-/* Form Field Colors */
-.light-theme .mat-form-field-outline,
-.light-theme .mat-form-field-label,
-.light-theme .mat-input-element {
-  color: #333;
-}
-
-.dark-theme .mat-form-field-outline,
-.dark-theme .mat-form-field-label,
-.dark-theme .mat-input-element {
-  color: #eee;
-}
-
-/* Error Message */
-.error-message {
-  color: red;
-  margin-bottom: 10px;
-  text-align: center; /* Center error message */
-}
-
-/* Center the Login Button */
-.login-card button[mat-raised-button] { 
-  display: block; /* Make the button a block element */
-  margin: 20px auto; /* Auto margin on left/right for centering, add top/bottom margin */
-  width: 80%; /* Adjust button width as needed */
-}
-
-/* Adjust form field width AND center them */
-.login-card mat-form-field {
-  width: 80%; 
-  margin: 0 10px 20px 35px; /* Add top/bottom margin and auto left/right margin */
-}
-
-/* Style the Login Title */
-.login-card mat-card-title {
-  text-align: center;
-  font-size: 2.5em; /* Increased font size */
-  font-weight: bold; /* Make it bold */
-  margin-bottom: 30px; 
-  /* Add a stylish font (choose a font from your project or Google Fonts) */
-  font-family: 'Roboto', sans-serif; /* Example: Roboto font */ 
-}
-.mat-form-field-wrapper {
-  position: relative;
-}
-
-.password-toggle {
-  position: absolute;
-  top: 50%;
-  right: 10px; /* Adjust as needed */
-  transform: translateY(-50%);
-  cursor: pointer;
-  user-select: none;
+@media (max-width: 768px) {
+  .login-container {
+    flex-direction: column;
+    .left-panel, .right-panel {
+      flex: none;
+      width: 100%;
+      padding: 1rem;
+    }
+    .left-panel {
+      order: 2;
+    }
+    .right-panel {
+      order: 1;
+    }
+  }
 }
