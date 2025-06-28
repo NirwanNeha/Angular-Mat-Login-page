@@ -1,0 +1,38 @@
+.dashboard-container {
+  display: flex;
+  min-height: 100vh;
+  background-color: #f4f6f9;
+  font-family: 'Segoe UI', sans-serif;
+
+  .sidebar {
+    width: 240px;
+    background-color: #0a2c56;
+    color: white;
+    padding: 20px;
+
+    .logo {
+      font-size: 1.8em;
+      margin-bottom: 30px;
+      font-weight: bold;
+    }
+
+    nav a {
+      display: block;
+      color: #c9d6ff;
+      padding: 12px 10px;
+      margin-bottom: 10px;
+      border-radius: 5px;
+      text-decoration: none;
+
+      &:hover,
+      &.active {
+        background-color: #133a6f;
+        color: #ffffff;
+      }
+    }
+  }
+
+  .main-content {
+    flex: 1;
+    padding: 20px;
+  }}
